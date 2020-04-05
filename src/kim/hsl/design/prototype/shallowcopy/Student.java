@@ -1,16 +1,11 @@
-package kim.hsl.design.prototype;
-
-import java.util.Vector;
+package kim.hsl.design.prototype.shallowcopy;
 
 /**
- * 原型模式实现流程 : 使用 clone 方法实现原型模式
- * 1 . 类继承 Cloneable 接口
- * 2 . 实现 protected Object clone() 方法
+ * 浅拷贝
  */
 public class Student implements Cloneable {
     private String name;
     private int age;
-    private Vector<String> courses = new Vector<>();
 
     public Student() {
         System.out.println("调用 Student 默认构造函数");
@@ -42,6 +37,7 @@ public class Student implements Cloneable {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", " + super.toString() +
+                " , " + name.hashCode() +
                 '}';
     }
 }

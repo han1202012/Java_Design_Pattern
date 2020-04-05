@@ -1,4 +1,4 @@
-package kim.hsl.design.prototype.shallowcopy;
+package kim.hsl.design.prototype.deepcopy;
 
 public class Main {
 

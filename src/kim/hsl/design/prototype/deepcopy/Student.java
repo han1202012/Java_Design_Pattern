@@ -1,4 +1,4 @@
-package kim.hsl.design.prototype.shallowcopy;
+package kim.hsl.design.prototype.deepcopy;
 
 import java.util.Vector;
 
@@ -6,7 +6,7 @@ import java.util.Vector;
  * 浅拷贝示例
  */
 public class Student implements Cloneable {
-
+    
     private String name;
     private int age;
 
@@ -34,8 +34,8 @@ public class Student implements Cloneable {
     public Vector<String> getCourses() {
         return courses;
     }
-    public void setCourses(Vector<String> courses) {
-        this.courses = courses;
+    public void setCourses(Vector<String> course) {
+        this.courses = course;
     }
 
     @Override
@@ -43,13 +43,21 @@ public class Student implements Cloneable {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", courses=" + courses +
+                ", course=" + courses +
                 '}';
     }
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
         System.out.println("调用 Student clone 方法");
-        return super.clone();
+
+        //1 . 首先拷贝一个基本对象
+        Student student = (Student) super.clone();
+
+        //2 . 将引用类型的对象单独克隆赋值
+        student.courses = (Vector<String>) this.courses.clone();
+
+        //3 . 返回创建的新的对象
+        return student;
     }
 }

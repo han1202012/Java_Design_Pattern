@@ -10,7 +10,6 @@ import java.util.Vector;
 public class Student implements Cloneable {
     private String name;
     private int age;
-    private Vector<String> courses = new Vector<>();
 
     public Student() {
         System.out.println("调用 Student 默认构造函数");

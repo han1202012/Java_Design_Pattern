@@ -20,6 +20,8 @@ public class Main {
                 // 2 . 设置克隆出的对象参数
                 student.setName("Tom" + i);
                 student.setAge(10 + i);
+
+                System.out.println(student);
             }
         } catch (CloneNotSupportedException e) {
             //捕获 clone 方法可能产生的异常

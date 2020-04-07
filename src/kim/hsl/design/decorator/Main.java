@@ -3,15 +3,22 @@ package kim.hsl.design.decorator;
 public class Main {
 
     public static void main(String[] args) {
-	    Battercake battercake = new Battercake();
-	    System.out.println(battercake.getDecorate() + " , 价格 : " + battercake.cost());
 
-        BattercakeWithEgg battercakeWithEgg = new BattercakeWithEgg();
-        System.out.println(battercakeWithEgg.getDecorate() + " , 价格 : " + battercakeWithEgg.cost());
+        //刚入学的学生
+	    Student student = new Student();
+	    System.out.println(student.studyCourses());
 
-        BattercakeWithEggSausage battercakeWithEggSausage = new BattercakeWithEggSausage();
-        System.out.println(battercakeWithEggSausage.getDecorate() + " , 价格 : " + battercakeWithEggSausage.cost());
+	    //大二学习计算机专业课程
+        AbstractStudent computerStudent = new ComputerStudentDecorator(student);
+        System.out.println(computerStudent.studyCourses());
+
+        //大二学习音乐专业课程
+        AbstractStudent musicStudent = new MusicStudentDecorator(student);
+        System.out.println(musicStudent.studyCourses());
+
+        //先学计算机 , 专修音乐的学生
+        AbstractStudent computerMusicStudent = new ComputerStudentDecorator(computerStudent);
+        System.out.println(computerMusicStudent.studyCourses());
 
     }
-
 }

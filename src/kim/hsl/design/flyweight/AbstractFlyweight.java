@@ -34,4 +34,13 @@ public abstract class AbstractFlyweight {
     public void setIntrinsicState(String intrinsicState) {
         this.intrinsicState = intrinsicState;
     }
+
+    /**
+     * 获取外部状态的数据
+     * 该数据用于 作为 对比两个对象是否一致 的依据
+     * @return
+     */
+    public String getExternalState() {
+        return externalState;
+    }
 }
